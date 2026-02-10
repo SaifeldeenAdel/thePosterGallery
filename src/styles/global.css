@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+	--font-serif: "Cormorant Garamond Variable", serif;
+    --color-background: #FCF9EA;
+    --color-primary: #233D4D;
+}

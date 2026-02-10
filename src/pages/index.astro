@@ -1,11 +1,33 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import PosterGallery from "../components/PosterGallery.jsx";
+import "../styles/global.css";
+import "@fontsource-variable/cormorant-garamond";
+import artblock from "../assets/posters/artblock.png";
+import blur from "../assets/posters/blur.png";
+import consume from "../assets/posters/consume.png";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const posters = [
+	{ id: 1, title: "Poster 1", src: artblock },
+	{ id: 2, title: "Poster 2", src: blur },
+	{ id: 3, title: "Poster 3", src: consume },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Poster Gallery</title>
+	</head>
+	<body class="bg-background text-gray-900 font-serif">
+		<header class="text-center py-30 sm:py-50">
+			<h1 class="md:text-7xl sm:text-5xl text-4xl">My Poster Gallery</h1>
+		</header>
+
+		<PosterGallery posters={posters} client:load />
+
+		<footer class="text-center py-6 text-gray-500">
+			© 2026 Saif's Poster Gallery
+		</footer>
+	</body>
+</html>
