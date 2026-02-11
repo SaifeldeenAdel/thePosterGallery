@@ -5,10 +5,15 @@ import "@fontsource-variable/cormorant-garamond";
 import artblock from "../assets/posters/artblock.png";
 import blur from "../assets/posters/blur.png";
 import consume from "../assets/posters/consume.png";
+import bg from "../assets/bg1.jpeg";
 
 const posters = [
 	{ id: 1, title: "Poster 1", src: artblock },
 	{ id: 2, title: "Poster 2", src: blur },
+	{ id: 3, title: "Poster 3", src: consume },
+	{ id: 3, title: "Poster 3", src: consume },
+	{ id: 3, title: "Poster 3", src: consume },
+	{ id: 3, title: "Poster 3", src: consume },
 	{ id: 3, title: "Poster 3", src: consume },
 ];
 ---
@@ -19,9 +24,46 @@ const posters = [
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Poster Gallery</title>
 	</head>
+
+	<script>
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("visible");
+					} else {
+						entry.target.classList.remove("visible");
+					}
+				});
+			},
+			{
+				threshold: 0.8, // 30% visible triggers
+			},
+		);
+
+		document.querySelectorAll(".fade-section").forEach((el) => {
+			observer.observe(el);
+		});
+	</script>
+
 	<body class="bg-background text-gray-900 font-serif">
-		<header class="text-center py-30 sm:py-50">
-			<h1 class="md:text-7xl sm:text-5xl text-4xl">My Poster Gallery</h1>
+		<header
+			class="relative min-h-screen sm:min-h-0 sm:py-50 sm:mt-40 flex flex-col justify-center items-center text-center bg-cover bg-center bg-no-repeat"
+		>
+			<div
+				class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-100 "
+				style={`background-image: url(${bg.src});`}
+			>
+			</div>
+			<div class="absolute inset-0 bg-black/50"></div>
+			<div class="relative z-10 text-white fade-section">
+				<h1 class="sm:text-7xl text-4xl">The Poster Gallery</h1>
+				<p class="text-xs sm:text-lg">
+					by <a target="_blank" href="https://github.com/saifeldeenadel"
+						><b>@saifeldeenadel</b></a
+					>
+				</p>
+			</div>
 		</header>
 
 		<PosterGallery posters={posters} client:load />

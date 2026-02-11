@@ -2,6 +2,35 @@
 
 @theme {
 	--font-serif: "Cormorant Garamond Variable", serif;
-    --color-background: #FCF9EA;
-    --color-primary: #233D4D;
+	--color-background: #fcf9ea;
+	--color-primary: #233d4d;
+}
+
+@keyframes slideUpFade {
+	0% {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-slide-up {
+	animation: slideUpFade 1s ease-in-out forwards;
+}
+
+.fade-section {
+	opacity: 0;
+	transform: translateY(25px);
+	transition:
+		opacity 1s ease,
+		transform 1s ease;
+}
+
+
+.fade-section.visible {
+	opacity: 1;
+	transform: translateY(0);
 }
