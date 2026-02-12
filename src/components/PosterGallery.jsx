@@ -7,7 +7,7 @@ export default function PosterGallery({ posters }) {
 
 	return (
 		<div className="max-w-6xl mx-auto px-5 py-20 sm:py-40">
-			<div className="grid grid-cols-2 sm:grid-cols-3 gap-y-8 gap-x-8 sm:gap-y-10 sm:gap-x-10">
+			<div className="grid grid-cols-2 sm:grid-cols-3 gap-y-8 gap-x-6 sm:gap-y-10 sm:gap-x-10">
 				{posters.map((poster) => (
 					<motion.div
 						key={poster.id}
@@ -47,9 +47,7 @@ export default function PosterGallery({ posters }) {
 									layoutId={`poster-${selectedPoster.id}`}
 									className="max-w-[90vw] max-h-[90vh] shadow-2xl pointer-events-none"
 								/>
-								<div className="w-[50%] p-3 bg-background font">
-									Request it
-								</div>
+								
 							</div>
 						</div>
 					</>

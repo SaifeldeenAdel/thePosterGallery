@@ -2,20 +2,29 @@
 import PosterGallery from "../components/PosterGallery.jsx";
 import "../styles/global.css";
 import "@fontsource-variable/cormorant-garamond";
-import artblock from "../assets/posters/artblock.png";
-import blur from "../assets/posters/blur.png";
-import consume from "../assets/posters/consume.png";
 import bg from "../assets/bg1.jpeg";
 
-const posters = [
-	{ id: 1, title: "Poster 1", src: artblock },
-	{ id: 2, title: "Poster 2", src: blur },
-	{ id: 3, title: "Poster 3", src: consume },
-	{ id: 3, title: "Poster 3", src: consume },
-	{ id: 3, title: "Poster 3", src: consume },
-	{ id: 3, title: "Poster 3", src: consume },
-	{ id: 3, title: "Poster 3", src: consume },
-];
+const images = import.meta.glob("../assets/posters/*.png", {
+	eager: true,
+	import: "default",
+});
+
+const posters = Object.entries(images).map(([path, src], index) => {
+	// Extract filename
+	const fileName = (path.split("/").pop() || "").replace(".png", "");
+
+	// Convert camelCase or PascalCase to proper title
+	const formattedTitle = fileName
+		.replace(/([A-Z])/g, " $1") // split capitals
+		.replace(/^./, (str) => str.toUpperCase()) // capitalize first
+		.trim();
+
+	return {
+		id: index + 1,
+		title: formattedTitle,
+		src,
+	};
+});
 ---
 
 <html lang="en">
@@ -51,7 +60,7 @@ const posters = [
 			class="relative min-h-screen sm:min-h-0 sm:py-50 sm:mt-40 flex flex-col justify-center items-center text-center bg-cover bg-center bg-no-repeat"
 		>
 			<div
-				class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-100 "
+				class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-100"
 				style={`background-image: url(${bg.src});`}
 			>
 			</div>
@@ -68,7 +77,7 @@ const posters = [
 
 		<PosterGallery posters={posters} client:load />
 
-		<footer class="text-center py-6 text-gray-500">
+		<footer class="text-center py-6 text-gray-500 text-sm md:text-base">
 			© 2026 Saif's Poster Gallery
 		</footer>
 	</body>

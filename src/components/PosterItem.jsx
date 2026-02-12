@@ -15,6 +15,7 @@ export default function PosterItem({ poster, onClick }) {
 				className="w-full h-auto object-cover pointer-events-none"
 				loading="lazy"
 			/>
+            
 		</div>
 	);
 }
