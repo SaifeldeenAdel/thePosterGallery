@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@fontsource-variable/cormorant-garamond": "^5.2.6",
+    "@fontsource-variable/montserrat": "^5.2.8",
     "@fontsource/twinkle-star": "^5.2.8",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.13",

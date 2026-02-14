@@ -2,6 +2,7 @@
 import PosterGallery from "../components/PosterGallery.jsx";
 import "../styles/global.css";
 import "@fontsource-variable/cormorant-garamond";
+import '@fontsource-variable/montserrat';
 import bg from "../assets/bg1.jpeg";
 
 const images = import.meta.glob("../assets/posters/*.png", {
@@ -9,19 +10,45 @@ const images = import.meta.glob("../assets/posters/*.png", {
 	import: "default",
 });
 
+const titles = [
+	"Art Block",
+	"Formula 1",
+	"Pain Makes Art",
+	"Create More",
+	"Consume Less",
+	"Blurry Year",
+	"Missing Out",
+	"Overthinking",
+	"Jack of all trades",
+	"Lost Hobbies",
+	"Overdraft",
+	"Experience Becoming",
+	"Get out of Bed",
+	"Dive",
+    "Getting Easier",
+    "Good Will Hunting",
+    "Good Grades",
+    "Impostor Syndrome",
+    "Outdoor Boys",
+    "Shut UP",
+    "Time is Running Out",
+    "We Are So Back",
+    "GO BACK",
+    "Making Mistakes",
+    "The Moment ",
+    "Oscar Piastri",
+    "New Year's Resolution",
+    "Run Away",
+    "Stop.",
+];
+
 const posters = Object.entries(images).map(([path, src], index) => {
 	// Extract filename
 	const fileName = (path.split("/").pop() || "").replace(".png", "");
 
-	// Convert camelCase or PascalCase to proper title
-	const formattedTitle = fileName
-		.replace(/([A-Z])/g, " $1") // split capitals
-		.replace(/^./, (str) => str.toUpperCase()) // capitalize first
-		.trim();
-
 	return {
 		id: index + 1,
-		title: formattedTitle,
+		title: titles[index],
 		src,
 	};
 });
@@ -71,7 +98,6 @@ const posters = Object.entries(images).map(([path, src], index) => {
 					by <a target="_blank" href="https://saifdev.vercel.app"
 						><b class="font-extrabold">@saifeldeenadel</b></a
 					>
-                    
 				</p>
 			</div>
 		</header>
