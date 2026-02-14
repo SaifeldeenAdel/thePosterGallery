@@ -11,13 +11,13 @@ const images = import.meta.glob("../assets/posters/*.png", {
 });
 
 const titles = [
-	"Art Block",
-	"Formula 1",
-	"Pain Makes Art",
-	"Create More",
 	"Consume Less",
+	"Art Block",
 	"Blurry Year",
+	"Create More",
+	"Formula 1",
 	"Missing Out",
+	"Pain Makes Art",
 	"Overthinking",
 	"Jack of all trades",
 	"Lost Hobbies",
@@ -26,20 +26,20 @@ const titles = [
 	"Get out of Bed",
 	"Dive",
     "Getting Easier",
+    "GO BACK",
     "Good Will Hunting",
     "Good Grades",
     "Impostor Syndrome",
-    "Outdoor Boys",
-    "Shut UP",
-    "Time is Running Out",
-    "We Are So Back",
-    "GO BACK",
     "Making Mistakes",
     "The Moment ",
     "Oscar Piastri",
+    "Outdoor Boys",
     "New Year's Resolution",
     "Run Away",
+    "Shut UP",
     "Stop.",
+    "Time is Running Out",
+    "We Are So Back",
 ];
 
 const posters = Object.entries(images).map(([path, src], index) => {
