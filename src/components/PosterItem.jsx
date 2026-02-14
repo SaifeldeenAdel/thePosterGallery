@@ -17,7 +17,7 @@ export default function PosterItem({ poster, onClick }) {
 			/>
 
             <div className="font-sans font-light text-xs sm:text-base px-1 sm:px-2 pt-3 flex flex-row justify-between items-center">
-                <div className="truncate">{poster.title}</div>
+                <div className="truncate"></div>
                 <div>#{poster.id}</div>
             </div>
             
