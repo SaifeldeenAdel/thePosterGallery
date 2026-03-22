@@ -45,7 +45,7 @@ export default function PosterGallery({ posters }) {
 									width={selectedPoster.src.width}
 									height={selectedPoster.src.height}
 									layoutId={`poster-${selectedPoster.id}`}
-									className="max-w-[90vw] max-h-[90vh] shadow-2xl pointer-events-none"
+									className="max-w-[90vw] max-h-full shadow-2xl pointer-events-none"
 								/>
 								
 							</div>
